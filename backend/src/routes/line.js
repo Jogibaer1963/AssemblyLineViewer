@@ -1,8 +1,7 @@
 import { Router } from "express";
-import { listReports, createReport } from "../controllers/lineController.js";
+import { lineSchedule } from "../controllers/lineController.js";
 
 const router = Router();
-router.get("/", listReports);
-router.post("/", createReport);
+router.get("/lineSchedule", lineSchedule);
 
 export default router;

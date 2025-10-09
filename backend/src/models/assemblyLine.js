@@ -1,13 +1,15 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const reportSchema = new mongoose.Schema(
-  {
-    title: { type: String, required: true },
-    machineNumber: { type: String, index: true },
-    country: String,
-    notes: String
-  },
-  { timestamps: true }
-);
+const scheduleSchema = new mongoose.Schema({
+  machineNumber: String,
+  st_1: { type: String, required: true },
+  st_2: { type: String, required: true },
+  st_3: { type: String, required: true },
+  st_4: { type: String, required: true },
+  engine_merge: { type: String, required: true }
+}, { timestamps: true,
+            collection: 'productionSchedule'});
 
-export default mongoose.model("Report", reportSchema);
+const Schedule = mongoose.model('Schedule', scheduleSchema);
+
+export default Schedule;

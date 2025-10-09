@@ -1,4 +1,324 @@
 /* You can add global styles to this file, and also import other style files */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*@import "tailwindcss";*/
+/*@tailwind utilities;*/
+/* Minimal helpers for custom animations used in Matrix-like view, etc. */
+@keyframes matrixFade { 0%,100% { opacity: 0 } 10%,90% { opacity: 1 } }
+.fade-matrix { animation: matrixFade 2.2s linear infinite; }
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 100%;
+  background: #020617;
+}
+
+/* Container */
+.container {
+  min-height: 100vh;
+  min-width: min-content;
+  color: white;
+  position: relative;
+  overflow: visible;
+}
+
+/* Background layers */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background: linear-gradient(to bottom right, #020617, #0f172a, #020617);
+  pointer-events: none;
+}
+
+.glow-cyan {
+  position: absolute;
+  top: -192px;
+  left: -192px;
+  width: 576px;
+  height: 576px;
+  border-radius: 50%;
+  background-color: rgba(6, 182, 212, 0.2);
+  filter: blur(96px);
+  pointer-events: none;
+}
+
+.glow-fuchsia {
+  position: absolute;
+  bottom: -192px;
+  right: -192px;
+  width: 576px;
+  height: 576px;
+  border-radius: 50%;
+  background-color: rgba(217, 70, 239, 0.2);
+  filter: blur(96px);
+  pointer-events: none;
+}
+
+.radial-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 50%);
+  pointer-events: none;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  /*max-width: 1536px;*/
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+/* Main content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Sections */
+.fcb-section {
+  display: grid;
+  grid-template-columns: 380px;
+  gap: 16px;
+  max-width: 380px;
+  margin: 0;
+}
+
+.bay-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
+  gap: 20px;
+  justify-content: start;
+}
+
+.test-bay-section {
+  position: relative;
+  left: 180em;
+  top: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
+  gap: 16px;
+  justify-content: start;
+}
+
+.final-bay-section {
+  position: relative;
+  left: 218em;
+  top: -13em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
+  gap: 16px;
+  justify-content: start;
+}
+
+.additional-section {
+  position: relative;
+  left: 1em;
+  top: -13em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 16px;
+  max-width: none;
+  justify-content: start;
+}
+
+/* Station card */
+.station-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /*pointer-events: all;*/
+}
+
+/* Status indicators */
+.status-indicator {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.status-active {
+  background-color: rgba(52, 211, 153, 0.7);
+}
+
+.status-inactive {
+  background-color: rgb(220, 38, 38);
+}
+
+.status-bar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 48px;
+  height: 12px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* HUD label */
+.hud-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Card header */
+.card-header {
+  margin-top: 4px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.station-title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.button-wrapper {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Move button */
+.move-button {
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.2s;
+  pointer-events: auto; /* Wichtig! */
+}
+
+.move-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Status text */
+
+.status-text-wrapper {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.status-text-1,
+.status-text-2 {
+  margin-top: 12px;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.status-text-2 {
+  position: relative;
+  left: 4em;
+}
+
+.timer-box {
+  font-size: 15px;
+}
+
+/* Info grid */
+.info-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.info-box {
+  border-radius: 6px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-danger {
+  background-color: rgba(255, 255, 255, 0.01);
+  border-color: rgb(252, 165, 165);
+  font-weight: 700;
+  color: rgb(239, 68, 68);
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .title {
+    font-size: 48px;
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .move-button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bay-section {
+    grid-template-columns: repeat(9, 280px);
+  }
+
+  .additional-section {
+    grid-template-columns: repeat(3, 380px);
+  }
+}

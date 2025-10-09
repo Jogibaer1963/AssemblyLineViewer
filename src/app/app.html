@@ -1,552 +1,497 @@
-<div class="min-h-screen text-white relative overflow-hidden">
-  <!-- Futuristic backdrop -->
-  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pointer-events-none"></div>
-  <div class="absolute -top-48 -left-48 w-[36rem] h-[36rem] rounded-full bg-cyan-500/20 blur-3xl pointer-events-none"></div>
-  <div class="absolute -bottom-48 -right-48 w-[36rem] h-[36rem] rounded-full bg-fuchsia-500/20 blur-3xl pointer-events-none"></div>
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_50%)] pointer-events-none"></div>
 
-  <div class="max-w-9xl mx-auto px-5 py-10 space-y-8">
-    <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+<div class="container">
+  <!-- Futuristic backdrop -->
+  <div class="backdrop"></div>
+  <div class="glow-cyan"></div>
+  <div class="glow-fuchsia"></div>
+  <div class="radial-overlay"></div>
+
+  <div class="content-wrapper">
+    <header class="header">
       <div>
-        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">{{ title }}</h1>
-        <p class="text-white/70 mt-1"></p>
+        <h1 class="title">{{ title }}</h1>
+        <p class="subtitle"></p>
       </div>
     </header>
 
-
-
-    <main class="space-y-10">
-      <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-      <!-- FCB Station 1 -->
-      <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-        <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-        <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-        <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-        <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-        <div class="mt-1 flex items-baseline justify-between">
-          <div class="text-3xl font-bold" >FCB Station 1 </div>
-          <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-            <button type="button"
-                    class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-              Move to FCB 2</button>
+    <main class="main-content">
+      <!-- FCB Stations Section -->
+      <section class="fcb-section">
+        <!-- FCB Station 1 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">FCB Station 1</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to FCB 2</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
-        <div class="mt-3 font-mono">{{ '— free —' }}</div>
-        <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-          <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-          <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-          <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
-        </div>
-      </div>
       </section>
-      <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-      <!-- FCB Station 2 -->
-      <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-        <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-        <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-        <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-        <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-        <div class="mt-1 flex items-baseline justify-between">
-          <div class="text-3xl font-bold" >FCB Station 2 </div>
-          <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-            <button type="button"
-                    class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-              Move to Bay 2</button>
+
+      <section class="fcb-section">
+        <!-- FCB Station 2 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">FCB Station 2</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 2</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
-        <div class="mt-3 font-mono">{{ '— free —' }}</div>
-        <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-          <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-          <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-          <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
-        </div>
-      </div>
       </section>
-      <!-- Bay 2 -->
-      <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-7 gap-4">
-          <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-            <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-            <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-            <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-            <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-            <div class="mt-1 flex items-baseline justify-between">
-              <div class="text-3xl font-bold">Bay 2</div>
-              <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-                  <button type="button"
-                          class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                  Move to Bay 3</button>
-              </div>
-            </div>
-            <div class="mt-3 font-mono">{{  '— free —' }}</div>
-            <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-              <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-              <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-              <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-FrontAxle</div>
+
+      <!-- Bay Section -->
+      <section class="bay-section">
+        <!-- Bay 2 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label"></div>
+          <div class="card-header">
+            <div class="station-title">Bay 2</div>
+            <div class="button-wrapper">
+              <button type="button"
+                      class="move-button"
+                      (click)="moveToNextBay('Bay 2', 'Bay 3')">Move to Bay 3</button>
             </div>
           </div>
-      <!-- Bay 3 -->
-          <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-            <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-            <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-            <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-            <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-            <div class="mt-1 flex items-baseline justify-between">
-              <div class="text-3xl font-bold" >Bay 3 </div>
-              <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-                  <button type="button"
-                          class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                  Move to Bay 4</button>
-              </div>
-            </div>
-            <div class="mt-3 font-mono">{{ '— free —' }}</div>
-            <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-              <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-              <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-              <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
+          <div class="status-text-wrapper">
+            <div class="status-text-1">{{ statusText1 }}</div>
+            <div class="status-text-2">{{ statusText2 }}</div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-box info-danger timer-box">Time left {{ timerBay2 }}</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-FrontAxle</div>
+          </div>
+        </div>
+
+        <!-- Bay 3 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 3</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 4</button>
             </div>
           </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
+          </div>
+        </div>
 
         <!-- Bay 4 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 4 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 5</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 4</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 5</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
-          </div>
-        </div>
-        <!-- Bay 5 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold">Bay 5</div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 6</button>
-            </div>
-          </div>
-          <div class="mt-3 font-mono">{{  '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-FrontAxle</div>
-          </div>
-        </div>
-        <!-- Bay 6 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 6 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 7</button>
-            </div>
-          </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
-          </div>
-        </div>
-        <!-- Bay 7 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 7 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 8</button>
-            </div>
-          </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
-          </div>
-        </div>
-        <!-- Bay 8 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold">Bay 8</div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 9</button>
-            </div>
-          </div>
-          <div class="mt-3 font-mono">{{  '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-FrontAxle</div>
-          </div>
-        </div>
-        <!-- Bay 9 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 9 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 10</button>
-            </div>
-          </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
-          </div>
-        </div>
-        <!-- Bay 10 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 10 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Test Bay</button>
-            </div>
-          </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
 
-        <!-- Test Bay 1 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Test Bay 1</div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Test 2</button>
+        <!-- Bay 5 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 5</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 6</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-FrontAxle</div>
+          </div>
+        </div>
+
+        <!-- Bay 6 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 6</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 7</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
+          </div>
+        </div>
+
+        <!-- Bay 7 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 7</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 8</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
+          </div>
+        </div>
+
+        <!-- Bay 8 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 8</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 9</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-FrontAxle</div>
+          </div>
+        </div>
+
+        <!-- Bay 9 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 9</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 10</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
+          </div>
+        </div>
+
+        <!-- Bay 10 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 10</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Test Bay</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
+          </div>
+        </div>
+      </section>
+      <section class="test-bay-section">
+        <!-- Test Bay 1 -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Test Bay 1</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Test 2</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
 
         <!-- Test Bay 2 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Test Bay 2 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 14</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Test Bay 2</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 14</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
+      </section>
+        <section class="final-bay-section">
         <!-- Bay 14 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold">Bay 14</div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 15</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 14</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 15</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{  '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-FrontAxle</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-FrontAxle</div>
           </div>
         </div>
+
         <!-- Bay 15 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 15 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 16</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 15</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 16</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
+
         <!-- Bay 16 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 16 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 17</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 16</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 17</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
+
         <!-- Bay 17 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold">Bay 17</div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 18</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 17</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 18</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{  '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-FrontAxle</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-FrontAxle</div>
           </div>
         </div>
+
         <!-- Bay 18 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 18 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Bay 19</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 18</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 19</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
 
         <!-- Bay 19 -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-emerald-400/70"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold" >Bay 19 </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : 'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move out of Line</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-active"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Bay 19</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move out of Line</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{ '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-ConCave</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-ConCave</div>
           </div>
         </div>
       </section>
-      <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-      <!-- Front Axle -->
-      <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-        <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-        <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-        <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-        <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-        <div class="mt-1 flex items-baseline justify-between">
-          <div class="text-3xl font-bold">Rear Axle</div>
-          <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
 
-            <button type="button"
-                    class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-            Move to Bay 2</button>
+      <!-- Additional Sections -->
+      <section class="additional-section">
+        <!-- Rear Axle -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Rear Axle</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 2</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-FrontAxle</div>
           </div>
         </div>
-        <div class="mt-3 font-mono">{{  '— free —' }}</div>
-        <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-          <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-          <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-          <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-FrontAxle</div>
-        </div>
-      </div>
-      <!-- Threshing Unit - Front Axle -->
-      <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-        <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-        <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-        <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-        <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-        <div class="mt-1 flex items-baseline justify-between">
-          <div class="text-3xl font-bold">Threshing Unit - Front Axle</div>
-          <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
 
-            <button type="button"
-                    class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-            Move to Bay 2</button>
+        <!-- Threshing Unit - Front Axle -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Threshing Unit - Front Axle</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Bay 2</button>
+            </div>
+          </div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-FrontAxle</div>
           </div>
         </div>
-        <div class="mt-3 font-mono">{{  '— free —' }}</div>
-        <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-          <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-          <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-          <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-FrontAxle</div>
-        </div>
-      </div>
       </section>
-      <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+
+      <section class="additional-section">
         <!-- Front Axle -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold">Front Axle</div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Threshing - Front Axle</button>
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Front Axle</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Threshing - Front Axle</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{  '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-FrontAxle</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-FrontAxle</div>
           </div>
         </div>
-        <!-- Threshing Unit  -->
-        <div class="relative rounded-2xl p-4 bg-white/5 ring-1 ring-cyan-300/20 backdrop-blur-md">
-          <div class="absolute inset-0 rounded-2xl border border-white/10"></div>
-          <div class="absolute top-2 left-2 h-3 w-3 rounded-full bg-red-600"></div>
-          <div class="absolute top-2 right-2 h-3 w-12 rounded bg-white/10"></div>
-          <div class="text-[10px] uppercase tracking-[0.2em] text-white/60">HUD Panel</div>
-          <div class="mt-1 flex items-baseline justify-between">
-            <div class="text-3xl font-bold">Threshing Unit </div>
-            <div class="px-2 py-1 rounded-md text-[10px] uppercase tracking-wider bg-white/10 ring-1 ring-white/10 ">
 
-              <button type="button"
-                      class="px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-sm font-medium
-                          'bg-white/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' :
-                          'text-white/70 hover:text-white pointer-events-auto hover:bg-white/10' ">
-                Move to Threshing - Front</button>
+        <!-- Threshing Unit -->
+        <div class="station-card">
+          <div class="card-border"></div>
+          <div class="status-indicator status-inactive"></div>
+          <div class="status-bar"></div>
+          <div class="hud-label">HUD Panel</div>
+          <div class="card-header">
+            <div class="station-title">Threshing Unit</div>
+            <div class="button-wrapper">
+              <button type="button" class="move-button">Move to Threshing - Front</button>
             </div>
           </div>
-          <div class="mt-3 font-mono">{{  '— free —' }}</div>
-          <div class="mt-3 grid grid-cols-3 gap-2 text-[10px] text-white/70">
-            <div class="rounded-md p-2    bg-white/1 ring-1 ring-red-300 font-bold text-red-500">Time Left 10:20</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Shift: A</div>
-            <div class="rounded-md p-2 bg-white/5 ring-1 ring-white/10">Tech: T-Threshing</div>
+          <div class="status-text">{{ '— free —' }}</div>
+          <div class="info-grid">
+            <div class="info-box info-danger">Time Left 10:20</div>
+            <div class="info-box">Shift: A</div>
+            <div class="info-box">Tech: T-Threshing</div>
           </div>
         </div>
       </section>

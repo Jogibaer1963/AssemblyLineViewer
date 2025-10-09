@@ -1,9 +1,9 @@
-export interface Report {
+export interface Schedule {
   _id?: string;
-  title: string;
   machineNumber?: string;
-  country?: string;
-  notes?: string;
-  createdAt?: string;
-  updatedAt?: string;
+  st_1: string;
+  st_2: string;
+  st_3: string;
+  st_4: string;
+  engine_merge: string;
 }

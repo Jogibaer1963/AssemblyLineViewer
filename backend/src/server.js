@@ -7,7 +7,7 @@ import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
 import connectDB from "./config/db.js";
-import reportRoutes from "./routes/line.js";
+import lineRoutes from "./routes/line.js";  // Korrigierter Import-Name
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,11 +24,11 @@ app.use(express.json());
 
 // CORS only in dev (use proxy in Angular)
 if (NODE_ENV !== "production") {
-  app.use(cors({ origin: ["http://localhost:4500"], credentials: true }));
+  app.use(cors({ origin: ["http://localhost:4500", "http://localhost:5500"], credentials: true }));
 }
 
-// API
-app.use("/api/reports", reportRoutes);
+// API Routes - KORRIGIERT
+app.use("/api", lineRoutes);  // Jetzt funktioniert /api/lineSchedule
 
 // Serve Angular build in production (optional)
 if (process.env.SERVE_FRONTEND === "true" && NODE_ENV === "production") {
@@ -49,6 +49,7 @@ connectDB()
   .then(() => {
     app.listen(PORT, () => {
       console.log(`🚀 API running on http://localhost:${PORT}`);
+      console.log(`📍 Try: http://localhost:${PORT}/api/lineSchedule`);
     });
   })
   .catch((err) => {
