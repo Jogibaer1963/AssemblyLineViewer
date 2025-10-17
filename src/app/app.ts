@@ -1,5 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
+interface LineItem {
+  _id?: string;
+  machine?: string;
+  bay_2?: string;
+  activeList?: boolean;
+  [key: string]: any;
+}
 
 @Component({
   selector: 'app-root',
@@ -10,43 +18,46 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 export class App implements OnInit, OnDestroy {
   title = 'Assembly Line';
-  statusText1 = 'C8911289';
-  statusText2 = 'C8911290';
-  timerBay2 = '';  // Wird mit der Uhr gefüllt
+  fcbStation1Text = '';
+  fcbStation2Text = '';
 
-  private clockInterval: any;
+  schedules: LineItem[] = [];
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // Initialisiere die Uhr
-    this.updateClock();
-
-    // Aktualisiere die Uhr jede Sekunde
-    this.clockInterval = setInterval(() => {
-      this.updateClock();
-    }, 1000);
+    // Load line schedule for machine table
+    this.loadLineSchedule();
   }
 
   ngOnDestroy(): void {
     // Räume den Interval auf, wenn die Komponente zerstört wird
-    if (this.clockInterval) {
-      clearInterval(this.clockInterval);
+  }
+
+
+  private loadLineSchedule(): void {
+    const url = 'http://localhost:5000/api/lineSchedule';
+    this.http.get<LineItem[]>(url).subscribe({
+      next: (items) => {
+        console.log('Loaded line schedule:', items);
+        const filtered = (items || []).filter(item =>
+          item?.activeList === true);
+        this.schedules = filtered.slice(0, 6);
+      },
+      error: (err) => {
+        console.error('Failed to load line schedule', err);
+        this.schedules = [];
+      }
+    });
+  }
+
+
+  onMachineRowClick(machine: LineItem, index: number): void {
+    // Only act when the first row is clicked
+    if (index === 0 && machine?.machine) {
+      this.fcbStation1Text = machine.machine;
     }
   }
 
-  updateClock(): void {
-    const now = new Date();
-    const hours = this.pad2(now.getHours());
-    const minutes = this.pad2(now.getMinutes());
-    const seconds = this.pad2(now.getSeconds());
-    this.timerBay2 = `${hours}:${minutes}:${seconds}`;
-  }
 
-  pad2(n: number): string {
-    return String(n).padStart(2, '0');
-  }
-
-  moveToNextBay(from: string, to: string): void {
-    console.log(`Moving from ${from} to ${to}`);
-    // Ihre Logik hier
-  }
 }

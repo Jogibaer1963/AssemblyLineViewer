@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
 const app = express();
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 5000;
 const NODE_ENV = process.env.NODE_ENV || "development";
 
 // middleware
@@ -24,7 +24,7 @@ app.use(express.json());
 
 // CORS only in dev (use proxy in Angular)
 if (NODE_ENV !== "production") {
-  app.use(cors({ origin: ["http://localhost:4500", "http://localhost:5500"], credentials: true }));
+  app.use(cors({ origin: ["http://localhost:4500", "http://localhost:5000"], credentials: true }));
 }
 
 // API Routes - KORRIGIERT

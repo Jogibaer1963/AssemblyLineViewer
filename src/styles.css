@@ -104,6 +104,9 @@ html, body {
 
 /* Sections */
 .fcb-section {
+  position: absolute;
+  top: 10em;
+  left: 1em;
   display: flex;
   align-items: flex-start;
   gap: 20px;
@@ -147,6 +150,9 @@ html, body {
 }
 
 .bay-section {
+  position: absolute;
+  top: 30em;
+  left: 2em;
   display: grid;
   grid-template-columns: repeat(auto-fill, 280px);
   gap: 20px;
@@ -166,7 +172,7 @@ html, body {
 .final-bay-section {
   position: relative;
   left: 218em;
-  top: -13em;
+  top: -27em;
   display: grid;
   grid-template-columns: repeat(auto-fill, 280px);
   gap: 16px;
@@ -174,9 +180,9 @@ html, body {
 }
 
 .additional-section {
-  position: relative;
+  position: absolute;
+  top: 43em;
   left: 1em;
-  top: -29em;
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
   gap: 16px;
@@ -184,9 +190,14 @@ html, body {
   justify-content: start;
 }
 
+.additional-section-2 {
+  position: absolute;
+  top: 57em;
+  left: 1em;
+}
+
 /* Station card */
 .station-card {
-  position: relative;
   border-radius: 16px;
   padding: 16px;
   background-color: rgba(255, 255, 255, 0.05);
@@ -396,3 +407,51 @@ html, body {
 .futuristic-table tbody tr:hover {
   background: rgba(0, 150, 255, 0.1);
 }
+
+.engine-assembly {
+  position: absolute;
+  top: 75em;
+  left: 1em;
+}
+
+.cooling-section {
+  position: relative;
+  top: -1em;
+  left: 4em;
+}
+
+.engine-cooling-1 {
+  position: relative;
+  top: 1em;
+  left: 20em;
+}
+
+.engine-cooling-2 {
+  position: relative;
+  top: -135px;
+  left: 43em;
+}
+
+.marrying-station-1 {
+  position: relative;
+  top: -286px;
+  left: 66em;
+}
+
+.marrying-station-2 {
+  position: relative;
+  top: -436px;
+  left: 89em;
+}
+
+.marrying-station-3 {
+  position: relative;
+  top: -587px;
+  left: 112em;
+}
+
+.engine-pre {
+  position: relative;
+  top: -600px;
+  left: -20em;
+ }
