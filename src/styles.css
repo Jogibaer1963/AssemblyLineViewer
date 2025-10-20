@@ -1,6 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-/*@import "tailwindcss";*/
-/*@tailwind utilities;*/
+
 /* Minimal helpers for custom animations used in Matrix-like view, etc. */
 @keyframes matrixFade { 0%,100% { opacity: 0 } 10%,90% { opacity: 1 } }
 .fade-matrix { animation: matrixFade 2.2s linear infinite; }
@@ -112,6 +110,13 @@ html, body {
   gap: 20px;
 }
 
+.status-text {
+  position: relative;
+  top: 0;
+  left: 10em;
+
+}
+
 .machine-table {
   position: relative;
   left: -345px;
@@ -123,6 +128,8 @@ html, body {
   padding: 15px;
   border: 1px solid rgba(0, 200, 255, 0.3);
   box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .futuristic-table {
@@ -455,3 +462,48 @@ html, body {
   top: -600px;
   left: -20em;
  }
+
+/* Accessibility and stability helpers */
+.futuristic-table td {
+  word-break: break-word;
+}
+
+.futuristic-table tbody tr.clickable {
+  cursor: pointer;
+}
+
+.futuristic-table tbody tr.empty td {
+  text-align: center;
+  color: rgba(200, 220, 240, 0.6);
+  font-style: italic;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Minimal responsive adjustments for narrow viewports */
+@media (max-width: 1200px) {
+  .content-wrapper { padding: 24px 12px; }
+
+  .fcb-section,
+  .bay-section,
+  .additional-section,
+  .additional-section-2,
+  .test-bay-section,
+  .final-bay-section {
+    position: static;
+    left: auto;
+    top: auto;
+  }
+
+  .station-card-fcb-2 { left: 0; top: 0; }
+
+  .machine-table { left: 0; }
+}

@@ -59,21 +59,27 @@
         </div>
 
         <!-- Machine Table -->
-        <div class="machine-table">
+        <div class="machine-table" role="region" aria-label="Machine schedule">
           <table class="futuristic-table">
             <thead>
             <tr>
-              <th>Machine</th>
-              <th>Online Date7Time</th>
+              <th scope="col">Machine</th>
+              <th scope="col">Online Date/Time</th>
             </tr>
             </thead>
             <tbody>
             @for (machines of schedules; track machines._id; let i = $index) {
-              <tr (click)="onMachineRowClick(machines, i)" [class.clickable]="i === 0">
+              <tr (click)="onMachineTableClick(machines._id)" class="clickable">
                 <td>{{ machines.machine }}</td>
                 <td>{{ machines.bay_2 }}</td>
               </tr>
             }
+            @empty {
+              <tr class="empty">
+                <td colspan="2">No machines scheduled</td>
+              </tr>
+            }
+
             </tbody>
           </table>
         </div>
@@ -87,7 +93,7 @@
           <div class="card-border"></div>
           <div class="status-indicator status-inactive"></div>
           <div class="status-bar"></div>
-          <div class="hud-label"></div>
+          <div class="hud-label">HUD Panel</div>
           <div class="card-header">
             <div class="station-title">Bay 2</div>
             <div class="button-wrapper">
