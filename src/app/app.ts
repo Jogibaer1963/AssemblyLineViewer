@@ -19,12 +19,16 @@ interface LineItem {
 
 export class App implements OnInit, OnDestroy {
   title = 'Assembly Line';
-  fcbStation1Text = '-- free --';
-  fcbStation2Text = '-- free --';
+  fcbStation1Status = '-- free --';
+  fcbStation2Status = '-- free --';
 
   schedules: LineItem[] = [];
   private socket?: Socket;
   private lastSerialized = '';
+
+  get isFcb1Busy(): boolean {
+    return (this.fcbStation1Status || '').trim() !== '-- free --';
+  }
 
   constructor(private http: HttpClient, private zone: NgZone) {}
 
@@ -34,7 +38,12 @@ export class App implements OnInit, OnDestroy {
     this.http.post<{ ok: boolean }>(url, {}).subscribe({
       next: (res) => {
         console.log('Advance requested for', id, '->', res?.ok ? 'OK' : 'NO-OP');
-        // Live updates will arrive via websocket/interval; no manual refresh needed
+        if (res?.ok) {
+          // Optimistically remove the item from the visible list when it becomes inactive
+          this.schedules = (this.schedules || []).filter(it => it._id !== id);
+        }
+        // Also refresh FCB status optimistically
+        this.fetchFcbStatus();
       },
       error: (err) => {
         console.error('Failed to advance item', id, err);
@@ -45,6 +54,7 @@ export class App implements OnInit, OnDestroy {
   ngOnInit(): void {
     // Initial load from REST as fallback/SSR safety
     this.loadLineSchedule();
+    this.fetchFcbStatus();
 
     // Connect to WebSocket for live updates
     const wsUrl = this.getWsUrl();
@@ -94,11 +104,27 @@ export class App implements OnInit, OnDestroy {
     const sliced = (items || []).slice(0, 6);
     const serialized = JSON.stringify(sliced);
     if (serialized === this.lastSerialized) {
-      // No change; skip UI update to avoid unnecessary rerenders/flicker
+      // Still refresh FCB status in case only bay occupancy changed
+      this.fetchFcbStatus();
       return;
     }
     this.lastSerialized = serialized;
     this.schedules = sliced;
+    // Refresh FCB status whenever schedule changes
+    this.fetchFcbStatus();
+  }
+
+  private fetchFcbStatus(): void {
+    this.http.get<{ fcb1Machine: string | null }>('/api/fcbStatus').subscribe({
+      next: (data) => {
+        const machine = data?.fcb1Machine || '';
+        this.fcbStation1Status = machine && machine.trim().length > 0 ? machine : '-- free --';
+      },
+      error: (err) => {
+        console.error('Failed to load FCB status', err);
+        this.fcbStation1Status = '-- free --';
+      }
+    });
   }
 
   private loadLineSchedule(): void {

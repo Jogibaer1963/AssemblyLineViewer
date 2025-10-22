@@ -33,12 +33,61 @@ export async function lineSchedule(_req, res, _next) {
   }
 }
 
+export async function getFcbStatus(_req, res) {
+  try {
+    // Use native collection to be resilient to schema strictness
+    const native = Schedule.collection;
+    // Find the most relevant doc in FCB 1. Prefer the lowest sequenz if present.
+    // Accept activeBayFCB_1
+    const activeFilter = {
+      $or: [
+        { activeBayFCB_1: { $in: [true, "true", 1, "1"] } }
+      ]
+    };
+    const cursor = native.find(activeFilter)
+      .project({ machine: 1, sequenz: 1 })
+      .sort({ sequenz: 1 })
+      .limit(1);
+    const docs = await cursor.toArray();
+    const doc = docs[0] || null;
+
+    res.set("Cache-Control", "no-store");
+    res.json({ fcb1Machine: doc?.machine || null });
+  } catch (err) {
+    console.error("getFcbStatus error:", err?.message || err);
+    res.set("Cache-Control", "no-store");
+    res.status(200).json({ fcb1Machine: null });
+  }
+}
+
+// Helper: format current time as local time for UTC-6 with explicit offset
+function formatUtcMinus6(now = new Date()) {
+  const offsetMinutes = 6 * 60; // UTC-6
+  const local = new Date(now.getTime() - offsetMinutes * 60 * 1000);
+  const pad = n => String(n).padStart(2, "0");
+  const yyyy = local.getUTCFullYear();
+  const mm = pad(local.getUTCMonth() + 1);
+  const dd = pad(local.getUTCDate());
+  const HH = pad(local.getUTCHours());
+  const MM = pad(local.getUTCMinutes());
+  const SS = pad(local.getUTCSeconds());
+  // Return ISO-like string with -06:00 offset
+  return `${yyyy}-${mm}-${dd}T${HH}:${MM}:${SS}-06:00`;
+}
+
 export async function advanceItem(req, res) {
   try {
     const { id } = req.params;
     if (!id) return res.status(400).json({ error: "Missing id" });
-
-    const update = { activeList: "false", activeInLine: "true" };
+     // Store values in database, only _id is submitted by client
+    // Standardize and be backward-compatible with existing field variants
+    const update = {
+      activeList: "false",
+      activeInLine: "true",
+      // Write to both variants to cover existing dashboards/queries
+      activeBayFCB_1: "true",
+      timerFCB_1: { timeStart: formatUtcMinus6(), timeEnd: "" }
+    };
 
     // First, try the standard Mongoose path (works when _id is ObjectId or castable)
     try {

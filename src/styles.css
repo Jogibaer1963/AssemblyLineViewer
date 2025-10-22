@@ -110,13 +110,6 @@ html, body {
   gap: 20px;
 }
 
-.status-text {
-  position: relative;
-  top: 0;
-  left: 10em;
-
-}
-
 .machine-table {
   position: relative;
   left: -345px;

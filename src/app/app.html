@@ -29,7 +29,7 @@
               <button type="button" class="move-button">Move to FCB 2</button>
             </div>
           </div>
-          <div class="status-text">{{ fcbStation1Text }}</div>
+          <div class="status-text-fcb">{{ fcbStation1Status }}</div>
           <div class="info-grid">
             <div class="info-box info-danger">Time Left 10:20</div>
             <div class="info-box">Shift: A</div>
@@ -46,11 +46,11 @@
           <div class="card-header">
             <div class="station-title">FCB Station 2</div>
             <div class="button-wrapper">
-              <button type="button" class="move-button"
+              <button type="button" class="move-button move-to-fcb-2"
               >Move to Bay 2</button>
             </div>
           </div>
-          <div class="status-text">{{ fcbStation2Text }}</div>
+          <div class="status-text-fcb">{{ fcbStation2Status }}</div>
           <div class="info-grid">
             <div class="info-box info-danger">Time Left 10:20</div>
             <div class="info-box">Shift: A</div>
@@ -60,7 +60,7 @@
 
         <!-- Machine Table -->
         <div class="machine-table" role="region" aria-label="Machine schedule">
-          <table class="futuristic-table">
+          <table class="futuristic-table" [class.deactivated]="isFcb1Busy" [attr.aria-disabled]="isFcb1Busy">
             <thead>
             <tr>
               <th scope="col">Machine</th>
@@ -69,7 +69,7 @@
             </thead>
             <tbody>
             @for (machines of schedules; track machines._id; let i = $index) {
-              <tr (click)="onMachineTableClick(machines._id)" class="clickable">
+              <tr (click)="!isFcb1Busy && onMachineTableClick(machines._id)" [class.clickable]="!isFcb1Busy">
                 <td>{{ machines.machine }}</td>
                 <td>{{ machines.bay_2 }}</td>
               </tr>
@@ -549,7 +549,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -570,7 +570,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -591,7 +591,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -612,7 +612,6 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -633,7 +632,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -656,7 +655,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -677,7 +676,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -698,7 +697,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -719,7 +718,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>
@@ -740,7 +739,7 @@
               </div>
             </div>
             <div class="status-text">{{ '— free —' }}</div>
-            <div class="status-text">{{ fcbStation1Text }}</div>
+
             <div class="info-grid">
               <div class="info-box info-danger">Time Left 10:20</div>
               <div class="info-box">Shift: A</div>

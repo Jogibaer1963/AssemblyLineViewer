@@ -118,23 +118,16 @@ html, body {
   position: relative;
   top: 0;
   left: 10em;
-
 }
 
-.machine-table {
+.status-text-fcb {
   position: relative;
-  left: -345px;
-  top: -6px;
-  margin-right: 20px;
-  margin-left: 20px;
-  background: rgba(10, 20, 40, 0.7);
-  border-radius: 10px;
-  padding: 15px;
-  border: 1px solid rgba(0, 200, 255, 0.3);
-  box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
-  overflow-x: auto;
-  max-width: 100%;
+  top: 6px;
+  left: 8em;
+  font-size: 25px;
 }
+
+
 
 .futuristic-table {
   width: 100%;
@@ -474,6 +467,18 @@ html, body {
 
 .futuristic-table tbody tr.clickable {
   cursor: pointer;
+}
+
+/* Deactivated state: disable clicks and indicate visually */
+.futuristic-table.deactivated {
+  opacity: 0.6;
+}
+.futuristic-table.deactivated tbody tr {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.futuristic-table.deactivated tbody tr:hover {
+  background: inherit;
 }
 
 .futuristic-table tbody tr.empty td {
